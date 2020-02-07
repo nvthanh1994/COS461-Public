@@ -9,7 +9,7 @@
 
 # Check correct number of arguments
 if [[ $# -ne 2 ]]; then
-  printf "USAGE: $0 [python|go] [server port]\n"
+  printf "USAGE: $0 [python3|go] [server port]\n"
   exit
 fi
 
@@ -24,8 +24,8 @@ testNum=1
 # Locations of student and instructor files
 SCC=/vagrant/assignment1/client_server/client-c # Student C client
 SCS=/vagrant/assignment1/client_server/server-c # Student C server
-SPC=/vagrant/assignment1/client_server/client-python.py # Student python client
-SPS=/vagrant/assignment1/client_server/server-python.py # Student python server
+SPC=/vagrant/assignment1/client_server/client-python.py # Student python3 client
+SPS=/vagrant/assignment1/client_server/server-python.py # Student python3 server
 SGC=/vagrant/assignment1/client_server/client-go # Student go client
 SGS=/vagrant/assignment1/client_server/server-go # Student go server
 
@@ -40,6 +40,8 @@ function compare {
     printf "\nFAILURE: Message received doesn't match message sent.\n"
     if [ $4 -ne 0 ]; then
       echo Differences:
+      echo $1 
+      echo $2 
       diff $1 $2
     fi
   fi
@@ -177,36 +179,36 @@ else
   ((testNum+=$TESTS_PER_IMPL))
 fi
 
-if [[ $LANGUAGE == "python" ]]; then
+if [[ $LANGUAGE == "python3" ]]; then
 
   printf "================================================================\n" 
-  printf "Testing Python client against Python server (2/4)               \n" 
+  printf "Testing python3 client against python3 server (2/4)               \n" 
   printf "================================================================\n" 
 
   if [[ -f $SPC && -f $SPS ]]; then
-    all-tests "python $SPC" "python $SPS" $PORT
+    all-tests "python3 $SPC" "python3 $SPS" $PORT
   else
     printf "\n$SKIP_MESSAGE"
     ((testNum+=$TESTS_PER_IMPL))
   fi
 
   printf "================================================================\n" 
-  printf "Testing C client against Python server (3/4)                    \n" 
+  printf "Testing C client against python3 server (3/4)                    \n" 
   printf "================================================================\n" 
 
   if [[ -f $SCC && -f $SPS ]]; then
-    all-tests $SCC "python $SPS" $PORT
+    all-tests $SCC "python3 $SPS" $PORT
   else
     printf "\n$SKIP_MESSAGE"
     ((testNum+=$TESTS_PER_IMPL))
   fi
 
   printf "================================================================\n" 
-  printf "Testing Python client against C server (4/4)                    \n" 
+  printf "Testing python3 client against C server (4/4)                    \n" 
   printf "================================================================\n" 
 
   if [[ -f $SPC && -f $SCS ]]; then
-    all-tests "python $SPC" $SCS $PORT
+    all-tests "python3 $SPC" $SCS $PORT
   else
     printf "\n$SKIP_MESSAGE"
     ((testNum+=$TESTS_PER_IMPL))
@@ -248,7 +250,7 @@ elif [[ $LANGUAGE == "go" ]]; then
   fi
 
 else
-  printf "Language invalid (must be python or go)\n\n"
+  printf "Language invalid (must be python3 or go)\n\n"
   ((testNum+=3*TESTS_PER_IMPL))
 fi
 

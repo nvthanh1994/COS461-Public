@@ -10,9 +10,10 @@ import socket
 SEND_BUFFER_SIZE = 2048
 
 def client(server_ip, server_port):
-    """TODO: Open socket and send message from sys.stdin"""
-    pass
-
+    data = input()
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((server_ip, server_port))
+        s.send(data.encode(), SEND_BUFFER_SIZE)
 
 def main():
     """Parse command-line arguments and call client function """
