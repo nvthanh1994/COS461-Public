@@ -2,14 +2,14 @@
 # My solution to COS 461 / Spring 2019 
 
 
-
+# Edit 2020: Current COS 461 Public repo had changed their contents. Now it contains only 6 assignments (previous assignment 2 about Inter/Intradomain Routing removed)
 
 # Princeton University COS 461: Computer Networks
 
 **NOTE**: The following assignments have been officially released. We advise against starting early on (last year's) assignments in the repository that haven't been officially released as these are still subject to change.
 
 * [Programming Assignment 1 (Virtual Machine Setup, Sockets)](https://github.com/PrincetonUniversity/COS461-Public/tree/master/assignments/assignment1)
-* [Programming Assignment 2 (Intradomain Routing Algorithms)](https://github.com/PrincetonUniversity/COS461-Public/tree/master/assignments/assignment2)
+* [Programming Assignment 2 (Intradomain Routing Algorithms)](https://github.com/PrincetonUniversity/COS461-Public/tree/master/assignments/assignment2) [2020: Removed]
 * [Programming Assignment 3 (TCP Congestion Control and Bufferbloat)](https://github.com/PrincetonUniversity/COS461-Public/tree/master/assignments/assignment3)
 * [Programming Assignment 4 (Passive Network Measurement)](https://github.com/PrincetonUniversity/COS461-Public/tree/master/assignments/assignment4)
 * [Programming Assignment 5 (Portscan)](https://github.com/PrincetonUniversity/COS461-Public/tree/master/assignments/assignment5)
